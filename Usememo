@@ -1,0 +1,23 @@
+
+import React, {useState, useMemo} from 'react'
+export default function App() {
+  const [add, setAdd] = useState(0);
+  const [minus, setMinus] = useState(100);
+  // function multiply() {
+  //   console.log('multiply');
+  //   return 10 * add;
+  // }
+
+  const multiplication = useMemo(function multiply(){
+    console.log('multiply');
+    return add * 10;
+  },[add]);
+  console.log('ye');
+  return (
+    <div className="App">
+      {/* {multiplication} <br/> */}
+      <button onClick={()=> setAdd(add + 1)}>Addition</button><span>{add}</span><br/>
+      <button onClick={()=> setMinus(minus - 1)}>Subtraction</button><span>{minus}</span>
+    </div>
+  );
+}
