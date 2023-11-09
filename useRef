@@ -1,0 +1,21 @@
+import { useState, useRef} from "react";
+
+export default function App() {
+  const [name, setName] = useState("");
+  const refElement = useRef("");
+
+  function handleReset(){
+    setName("")
+    refElement.current.focus();
+  } 
+  function handleColor(){
+    refElement.current.style.color = "blue";
+  } 
+  return (
+    <div className="App">
+      <input ref={refElement} type="text" value={name} onChange={(e) => setName(e.target.value)} />
+      <button onClick={handleReset}>Reset</button>
+      <button onClick={handleColor}>Color</button>
+    </div>
+  );
+}
