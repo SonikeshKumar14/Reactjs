@@ -1,0 +1,38 @@
+// Child to Parent sending data
+
+App.js File
+import React from "react";
+import ChildC from "./ChildC"
+
+function App() {
+  function getData(data){
+    console.log(data)
+  }
+  
+  return (
+    <div className="App">
+       <ChildC getData={getData} />
+    </div>
+  );
+}
+export default App;
+
+// Child.js File
+
+import React, { useState } from "react";
+
+const ChildC = (props) => {
+  const [name, setName] = useState("")
+  function handleSubmit(e){
+    e.preventDefault();
+    props.getData(name);
+ }
+  return(
+    <form onSubmit={handleSubmit}>
+       <label>FirstName</label><br/>
+       <input type="text" name="FirstName" value={name} onChange={(e)=> setName(e.target.value)}/>
+       <button>Submit</button>
+    </form>
+  )
+};
+export default ChildC;
