@@ -10,6 +10,7 @@ export default function App() {
   } 
   function handleColor(){
     refElement.current.style.color = "blue";
+    refElement.current.value = "jal"
   } 
   return (
     <div className="App">
