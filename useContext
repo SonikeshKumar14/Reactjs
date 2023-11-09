@@ -1,1 +1,38 @@
-i
+// App.js file
+import React, {createContext} from "react";
+import ChildC from './ChildC'
+ 
+const data = createContext();
+const data1 = createContext();
+
+function App() {
+  const name = "Sonikesh"
+  const gender = "Male"
+
+  return (
+    <div className="App">
+       <data.Provider value={profile}>
+         <data1.Provider value={gender}>
+           <ChildC/>
+         </data1.Provider>
+       </data.Provider>
+    </div>
+  );
+}
+export default App;
+export {data, data1};
+
+// ChildC file
+
+import React, {useContext} from 'react'
+import {data} from './App.js'
+const ChildC = () => {
+ const {name} = useContext(data);
+ const gender = useContext(data1);
+ return(
+   <>
+     <h1>{name} is {gender}</h1>
+   </>
+ )
+}
+export default ChildC;
