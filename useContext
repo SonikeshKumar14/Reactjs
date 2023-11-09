@@ -27,7 +27,7 @@ export {data, data1};
 import React, {useContext} from 'react'
 import {data} from './App.js'
 const ChildC = () => {
- const {name} = useContext(data);
+ const name = useContext(data);
  const gender = useContext(data1);
  return(
    <>
