@@ -1,0 +1,29 @@
+// Controlled Form by react
+import React, { useState } from "react";
+
+
+function App() {
+  const [name, setName] = useState("")
+  const [pwd, setPwd] = useState("");
+   function handleChange(e){
+    console.log(e.target.name);
+    if(e.target.name == "firstName"){
+       const capName = (e.target.value).toUpperCase();
+       setName(capName);
+    }else{
+      setPwd(e.target.value)
+    }
+  }
+
+  return (
+    <div className="App">
+      <form>
+       <label>FirstName</label><br/>
+       <input type="text" name="firstName"  value={name} onChange={handleChange} />
+       <br/><label>Password</label><br/>
+       <input type="password" value={pwd} name="password" onChange={handleChange} />
+     </form>
+    </div>
+  );
+}
+export default App;
