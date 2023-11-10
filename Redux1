@@ -27,3 +27,41 @@ const BookReducer = (state=initialstate, action) =>{
 }
 export default BookReducer;
 
+// Store.js
+import {createStore} from 'redux';
+import BookReducer from './BookReducer';
+
+const store = createStore(BookReducer);
+export default store;
+
+// App.js
+import {Provider} from './react-redux';
+import store from './Store.js';
+import BookContainer from './BookContainer';
+function App(){
+  return(
+   <Provider store={store}>
+     <div ClassName="App">
+       <BookContainer/>
+     </div>
+   </Provider>
+  )
+}
+export default App;
+
+// BookContainer.js
+import {useSelector} from 'react-redux';
+
+function BookContainer() {
+  const noOfBooks = useSelector(state => state.NoofBooks); // yaha par dekh  isne NoofBooks ko import nhi kiya hai BookReducer phir bhi chal gya\
+  const dispatch = useDispatch();
+  return(
+       <>
+         <div>BookContainer</div>
+         <h2>No of Books - {noOfBooks}</h2>
+         <button onClick={()=>{dispatch(purchase_book())}}>
+      </>
+     )
+}
+export default BookContainer;
+
