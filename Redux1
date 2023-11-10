@@ -1,0 +1,10 @@
+// BookTypes.js
+export const buy_book = 'buy_book';
+
+// BookAction.js
+import {buyBook} from './BookTypes.js'
+const purchase_book = () =>{
+   return {
+        type: buyBook
+   }
+}
