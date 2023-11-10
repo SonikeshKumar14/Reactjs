@@ -1,3 +1,5 @@
+// redux mai store <---> reducer <---> action
+// store mai states hoti hai , action kya karna hai vo batata hai or reducer kaise karna hai vo batata hai reducer ek function hota hai
 // BookTypes.js
 export const buy_book = 'buy_book';
 
@@ -8,3 +10,20 @@ const purchase_book = () =>{
         type: buyBook
    }
 }
+
+// BookReducer.js
+import {buy_book} from './BookTypes';
+const initialstate = {
+  NoofBooks: 20
+}
+
+const BookReducer = (state=initialstate, action) =>{
+    switch(action.type){
+      case buy_book: return{
+         ...state, NoofBooks: state.initialstate - 1;
+      }
+      default:  return state
+   }
+}
+export default BookReducer;
+
