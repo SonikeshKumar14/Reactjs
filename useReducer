@@ -1,0 +1,28 @@
+import { useReducer } from "react";
+import "./styles.css";
+// useReducer useState ki trah state management mai use karte hai.
+// but useReducer complex state management ke liye karte hai. 
+const initialstate = 0;
+const reducer = (state, action) => {
+  switch(action){
+    case 'Increment' :
+         return state + 1;
+    case 'Decrement' :
+         return state - 1;
+    default :
+         return state;
+  }
+}
+
+export default function App() {
+  const [count, dispatch] = useReducer(reducer, initialstate);
+  // dispatch ek function hai jo reducer ko call karta hai or vo dispatcher ke
+  // argument ke according vo action perform karta hai jo bhi return hota hai vo count mai store hoga
+  return (
+    <div className="App">
+     <p>Count = {count}</p>
+     <button onClick={()=> dispatch('Increment')}>Increment</button>
+     <button onClick={()=> dispatch('Decrement')}>Decrement</button>
+   </div>
+  );
+}
