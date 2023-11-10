@@ -1,0 +1,20 @@
+import { useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  const [data, setData] = useState({
+     firstName: 'Sonikesh',
+     LastName: 'Kumar'
+  });
+  function handleUpdate(e){
+     setData({...data, LastName:'Ram'});
+  }
+ 
+  console.log('render')
+  return (
+    <div className="App">
+       <h1>Firstname is {data.firstName} and Lastname is {data.LastName}</h1>
+      <button onClick={handleUpdate}>Submit</button>
+   </div>
+  );
+}
