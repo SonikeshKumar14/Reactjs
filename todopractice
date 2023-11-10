@@ -1,0 +1,54 @@
+import { useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  const [activity, setActivity] = useState("");
+  const [tasks, setTasks] = useState([]);
+  function addTasks(){
+    //*** this works asynchronously ****
+    //  setTasks([...tasks, activity])
+    //  console.log(tasks)
+
+    //** this synchronously ****
+    setTasks((tasks) => {
+      const updateTasks = [...tasks, activity];
+      console.log(updateTasks)
+      setActivity("");
+      return updateTasks;
+    });
+  }
+  function removeTasks(i){
+    const updateTasks = tasks.filter((ele, id) => {
+         return i!=id
+    })
+    setTasks(updateTasks);
+  }
+  function removeAll(){
+    setTasks([]);
+  }
+
+  return (
+    <div className="App">
+     <h1>TODO LIST</h1>
+     <input type="text" placeholder="Add Activity" 
+     value={activity} onChange={(e)=>setActivity(e.target.value)}
+     />
+     <button onClick={addTasks}>ADD</button>
+     <h2>Here is Your List :)</h2>
+    
+     {
+       tasks!=[] && tasks.map((task, i) => {
+         return(
+           <p key={i}>
+           {task}
+           <button onClick={()=>removeTasks(i)}>remove</button>
+           </p>  // kyuki array mai sirf string hai toh p-tag ke bahar button nhi ban sakta error ayega
+         )
+       })
+     }
+     {tasks.length >= 1 &&  
+     <button onClick={removeAll}>removeAll</button>}
+    
+   </div>
+  );
+}
