@@ -9,3 +9,19 @@ export default function App() {
     </div>
   );
 }
+
+// map function under use
+import "./styles.css";
+
+export default function App() {
+  const IPL = ["CSK", "MI", "DD", "RCB"];
+ 
+  return (
+    <div className="App">
+      {
+         IPL.map((ipl) => <h1>{ipl}</h1>)
+      }
+    </div>
+  );
+}
+
