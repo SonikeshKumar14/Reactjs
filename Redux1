@@ -51,15 +51,17 @@ export default App;
 
 // BookContainer.js
 import {useSelector} from 'react-redux';
+import purchase_book from './BookAction';
 
 function BookContainer() {
   const noOfBooks = useSelector(state => state.NoofBooks); // yaha par dekh  isne NoofBooks ko import nhi kiya hai BookReducer phir bhi chal gya\
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); //useDispatch function ka reference return karta hai 
   return(
        <>
          <div>BookContainer</div>
          <h2>No of Books - {noOfBooks}</h2>
-         <button onClick={()=>{dispatch(purchase_book())}}>
+         <button onClick={()=>{dispatch(purchase_book())}}> // yaha dekho isne purchase_book jo ki action create tha uska refernce diya reducer ko toh reducer ne dekha or fir
+// usne state ko modify kra dipatch state mai modification ke liye hi use karte hai
       </>
      )
 }
