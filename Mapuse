@@ -25,3 +25,22 @@ export default function App() {
   );
 }
 
+//use of key and index
+
+export default function App() {
+  const IPL = ["CSK", "MI", "DD", "RCB", "CSK"];
+  const IPL2 = ["RR", "CSK", "MI", "DD", "RCB"];
+  console.log('render');
+  IPL2.forEach((ipl)=>{
+    if(!IPL.includes(ipl)){
+       IPL.push(ipl);
+    }
+  })
+  return (
+    <div className="App">
+    {
+      IPL.map((ipl, index) => <h1 key={index}>{ipl}</h1>)
+    }
+    </div>
+  );
+}
