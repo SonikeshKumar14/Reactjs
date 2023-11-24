@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-// jab bhi state change hota toh useEffect chalta agar [] nhi diya toh aur [data] hoga toh jab change hoga state toh chalega useEffect
-// jab [] khali hota hai toh nhi chalta chahe koisi bhi state change ho.
+// jab bhi koisi bhi state change hota toh useEffect chalta agar [] nhi diya toh aur [data] hoga toh jab koi particular state change hoga  toh chalega useEffect
+// jab [] khali hota hai toh ek baar chalta uske baad nhi chalta chahe koisi bhi state change ho.
 export default function App() {
   const [count, setCount] = useState(0);
   const [data, setData] = useState("");
